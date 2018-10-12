@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="mainLayoutName">Weather</string>
+    <string name="helloActivity">Привет Дмитрий</string>
+    <string name="helloMorning">С добрым утром</string>
+    <string name="helloDay">Добрый день</string>
+    <string name="helloEvening">Добрый вечер</string>
+    <string name="helloNight">Доброй ночи</string>
+    <string name="timePrefix">Сегодня: </string>
+
 </resources>
