@@ -7,8 +7,10 @@ package com.example.maximovd.weather;
 
 
 
+import android.arch.lifecycle.Lifecycle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
         else instantState = getString(R.string.relaunch);
 
         Toast.makeText(getApplicationContext(),instantState + " on Create", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onCreate");
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
          Toast.makeText(getApplicationContext(),"on Start", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onStart");
     }
 
     @Override
@@ -45,18 +50,21 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         Toast.makeText(getApplicationContext(),"on RestoreInstanceState -  Повторный запуск.  " +
                 "textView: " + savedInstanceState.getString(bundlekey,""), Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onRestoreInstanceState");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
        Toast.makeText(getApplicationContext(),"on Resume", Toast.LENGTH_SHORT).show();
+       Log.i("LifeCicle", "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Toast.makeText(getApplicationContext(),"on Pause", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onPause");
     }
 
     @Override
@@ -64,23 +72,27 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(bundlekey, textView.getText().toString());
         super.onSaveInstanceState(outState);
         Toast.makeText(getApplicationContext(),"on SaveInstanceState", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onSaveInstanceState");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Toast.makeText(getApplicationContext(),"on Stop", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onStop");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         Toast.makeText(getApplicationContext(),"on Restart", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Toast.makeText(getApplicationContext(),"on Destroy", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onDestroy");
     }
 }
