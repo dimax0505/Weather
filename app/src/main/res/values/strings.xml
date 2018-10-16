@@ -3,4 +3,6 @@
     <string name="mainLayoutName">Weather</string>
     <string name="first_launch">Первый запуск</string>
     <string name="relaunch">Повторный запуск</string>
+    <string name="api_key_id">f178f6d59051ed69c82c4d8a2592ee18</string>
+    <string name="place_not_found">Не получилось</string>
 </resources>

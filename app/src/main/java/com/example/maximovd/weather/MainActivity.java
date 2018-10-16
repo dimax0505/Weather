@@ -7,17 +7,25 @@ package com.example.maximovd.weather;
 
 
 
-import android.arch.lifecycle.Lifecycle;
+
+import android.content.Context;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.json.JSONObject;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
      private final String bundlekey = "bundle_key";
      TextView textView;
+    TextView cityField;
+    TextView currentTemperatureField;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.textView);
+        cityField = findViewById(R.id.city_field);
+        currentTemperatureField = findViewById(R.id.current_temperature_field);
+
+
 
 
 
@@ -36,6 +48,40 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),instantState + " on Create", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onCreate");
 
+        updateWeatherData();
+
+    }
+
+    private void updateWeatherData(){
+        new Thread(){
+            public void run(){
+               final JSONObject json = WeatherFetch.getJSON();
+                if(json == null){
+                            Toast.makeText(getApplicationContext(),
+                                    getApplicationContext().getString(R.string.place_not_found),
+                                    Toast.LENGTH_LONG).show();
+
+                } else {
+                    renderWeather(json);
+                }
+           }
+        }.start();
+    }
+
+    private void renderWeather(JSONObject json){
+        try {
+            cityField.setText(json.getString("name"));
+
+
+            JSONObject main = json.getJSONObject("main");
+
+            currentTemperatureField.setText(
+                    String.format("%.2f", main.getDouble("temp"))+ " ℃");
+
+
+        }catch(Exception e){
+            Log.e("SimpleWeather", "One or more fields not found in the JSON data");
+        }
     }
 
     @Override
