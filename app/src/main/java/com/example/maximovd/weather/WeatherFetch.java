@@ -17,7 +17,7 @@ public class WeatherFetch {
             HttpURLConnection connection =
                     (HttpURLConnection)url.openConnection();
 
-            
+
 
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(connection.getInputStream()));

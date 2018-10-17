@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
      private final String bundlekey = "bundle_key";
      TextView textView;
-    TextView cityField;
-    TextView currentTemperatureField;
-    Handler handler;
+     private TextView cityField;
+     private TextView currentTemperatureField;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
         cityField = findViewById(R.id.city_field);
         currentTemperatureField = findViewById(R.id.current_temperature_field);
 
-
-
-
-
         String instantState;
         if (savedInstanceState == null)
             instantState = getString(R.string.first_launch);
@@ -49,40 +45,46 @@ public class MainActivity extends AppCompatActivity {
         Log.i("LifeCicle", "onCreate");
 
         updateWeatherData();
-
     }
 
     private void updateWeatherData(){
         new Thread(){
             public void run(){
-               final JSONObject json = WeatherFetch.getJSON();
+                final JSONObject json = WeatherFetch.getJSON();
                 if(json == null){
                             Toast.makeText(getApplicationContext(),
                                     getApplicationContext().getString(R.string.place_not_found),
                                     Toast.LENGTH_LONG).show();
 
                 } else {
-                    renderWeather(json);
+                   renderWeather(json);
                 }
            }
         }.start();
+
     }
 
-    private void renderWeather(JSONObject json){
-        try {
-            cityField.setText(json.getString("name"));
+    private void renderWeather(final JSONObject json) {
+        handler = new Handler(getBaseContext().getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    cityField.setText(json.getString("name"));
+                    JSONObject main = json.getJSONObject("main");
+                    currentTemperatureField.setText(
+                            String.format(Locale.US, "%.2f", main.getDouble("temp")) + " ℃");
 
 
-            JSONObject main = json.getJSONObject("main");
-
-            currentTemperatureField.setText(
-                    String.format("%.2f", main.getDouble("temp"))+ " ℃");
-
-
-        }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data");
-        }
+                } catch (Exception e) {
+                    Log.e("SimpleWeather", e.getMessage());
+                }
+            }
+        });
     }
+
+
+
 
     @Override
     protected void onStart() {
