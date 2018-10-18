@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="mainLayoutName">Weather</string>
+    <string name="first_launch">Первый запуск</string>
+    <string name="relaunch">Повторный запуск</string>
+
+    <string name="place_not_found">Не получилось</string>
 </resources>
