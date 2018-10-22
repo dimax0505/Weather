@@ -1,7 +1,13 @@
 package com.example.maximovd.weather;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telecom.TelecomManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 //1. Создайте два экрана в вашем приложении. На первом экране создайте форму запроса для города (EditText) и кнопку отправки запроса.
 // По нажатию на кнопку открывайте второй экран, передавайте в него название города с предыдущего экрана и выводите данные о погоде вместе с названием города.
@@ -11,12 +17,39 @@ import android.os.Bundle;
 //        4. * Выясните в чем разница между явным и неявным интентами и в каких случаях используется неявный интент.
 
 public class MainActivity extends AppCompatActivity {
+    private EditText name_of_city;
+    private Button ok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initViews();
+        setOnOkButton();
 
+
+    }
+
+    private void initViews() {
+       name_of_city = findViewById(R.id.name_of_city);
+       ok = findViewById(R.id.batton_Ok);
+    }
+
+    private void setOnOkButton (){
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String city = name_of_city.getText().toString();
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("name_of_city", city);
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    public String getName_of_city() {
+        return name_of_city.getText().toString();
     }
 }
