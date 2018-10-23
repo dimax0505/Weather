@@ -32,5 +32,49 @@
             android:text="@string/ok"
     />
 
+    <Switch
+            android:id="@+id/switch_addition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/batton_Ok"
+            android:layout_centerHorizontal="true"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@+id/switch_addition"
+              android:layout_below="@+id/batton_Ok"
+              android:text="@string/addition"
+    />
+    <CheckBox
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/switch_addition"
+            android:layout_centerHorizontal="true"
+            android:text="@string/humidity"
+            android:visibility="invisible"
+    />
+
+
+    <CheckBox
+            android:id="@+id/speed_of_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/humidity"
+            android:layout_centerHorizontal="true"
+            android:text="@string/speed_of_wind"
+            android:visibility="invisible"
+    />
+
+    <CheckBox
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/speed_of_wind"
+            android:layout_centerHorizontal="true"
+            android:text="@string/pressure"
+            android:visibility="invisible"
+    />
+
 
 </RelativeLayout>

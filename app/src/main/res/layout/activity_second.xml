@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
               android:layout_height="match_parent">
 
 
@@ -12,14 +12,14 @@
             android:layout_centerHorizontal="true"
     />
     <TextView
-        android:id="@+id/name_of_city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_below="@+id/description"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-/>
+            android:id="@+id/name_of_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/description"
+            android:layout_centerHorizontal="true"
+            android:textSize="40dp"
+            android:textAlignment="center"/>
     <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
@@ -28,15 +28,52 @@
             android:layout_below="@+id/name_of_city"
             android:layout_centerHorizontal="true"
             android:textSize="40dp"
+            android:visibility="invisible"
+            android:textAlignment="center"/>
+
     />
     <TextView
-            android:id="@+id/degree"
+            android:id="@+id/humidity_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/degree"
-            android:layout_toRightOf="@+id/temperature"
-            android:layout_below="@+id/name_of_city"
+            android:text="@string/app_name"
+            android:layout_below="@+id/temperature"
+            android:layout_centerHorizontal="true"
             android:textSize="40dp"
-    />
+            android:visibility="invisible"
+            android:textAlignment="center"/>
+
+    <TextView
+            android:id="@+id/speed_of_wind_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/humidity_second"
+            android:layout_centerHorizontal="true"
+            android:textSize="40dp"
+            android:visibility="invisible"
+            android:textAlignment="center"/>
+    <TextView
+            android:id="@+id/pressure_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_below="@+id/speed_of_wind_second"
+            android:layout_centerHorizontal="true"
+            android:textSize="40dp"
+            android:visibility="invisible"
+            android:textAlignment="center"/>
+
+    <TextView
+            android:id="@+id/city_not_valid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Такого города нет в базе"
+            android:layout_below="@+id/name_of_city"
+            android:visibility="invisible"
+
+            android:layout_centerHorizontal="false" android:layout_centerInParent="false"
+            android:textAlignment="center">
+    </TextView>
 
 </RelativeLayout>
