@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="mainLayoutName">Weather</string>
+    <string name="comment_for_input">Введите название города:</string>
+    <string name="input_here">input_here</string>
+    <string name="ok">OK</string>
+    <string name="description_second_activity">Текущая погода в городе:</string>
+    <string name="degree">℃</string>
+    <string name="name_of_city">name_of_city</string>
+    <string name="addition">Дополнительно</string>
+    <string name="temperature">Температура</string>
+    <string name="humidity">Влажность</string>
+    <string name="speed_of_wind">Скорость ветра</string>
+    <string name="pressure">Давление</string>
+    <string name="percent">%</string>
+    <string name="speed">m/cек</string>
+    <string name="pressure_meter"> мм.рт.ст.</string>
+    <string name="moscow">moscow</string>
+
 </resources>

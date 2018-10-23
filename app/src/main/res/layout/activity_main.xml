@@ -1,16 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
     <TextView
+            android:id="@+id/comment_for_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mainLayoutName"
-            android:layout_gravity="center_horizontal"/>
+            android:text="@string/comment_for_input"
+            android:layout_centerHorizontal="true"
+           />
+    <EditText
+            android:id="@+id/name_of_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comment_for_input"
+            android:hint="@string/input_here"
+            android:inputType="text"
+    />
 
-</FrameLayout>
+    <Button
+            android:id="@+id/batton_Ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_of_city"
+            android:layout_centerHorizontal="true"
+            android:text="@string/ok"
+    />
+
+    <Switch
+            android:id="@+id/switch_addition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/batton_Ok"
+            android:layout_centerHorizontal="true"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@+id/switch_addition"
+              android:layout_below="@+id/batton_Ok"
+              android:text="@string/addition"
+    />
+    <CheckBox
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/switch_addition"
+            android:layout_centerHorizontal="true"
+            android:text="@string/humidity"
+            android:visibility="invisible"
+    />
+
+
+    <CheckBox
+            android:id="@+id/speed_of_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/humidity"
+            android:layout_centerHorizontal="true"
+            android:text="@string/speed_of_wind"
+            android:visibility="invisible"
+    />
+
+    <CheckBox
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/speed_of_wind"
+            android:layout_centerHorizontal="true"
+            android:text="@string/pressure"
+            android:visibility="invisible"
+    />
+
+
+</RelativeLayout>
