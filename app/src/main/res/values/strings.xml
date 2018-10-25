@@ -1,19 +1,22 @@
 <resources>
-    <string name="app_name">Weather</string>
-    <string name="comment_for_input">Введите название города:</string>
-    <string name="input_here">input_here</string>
+    <string name="appName">Weather</string>
+    <string name="commentForInput">Введите название города:</string>
+    <string name="inputHere">здесь наберите город</string>
     <string name="ok">OK</string>
-    <string name="description_second_activity">Текущая погода в городе:</string>
+    <string name="descriptionSecondActivity">Текущая погода в городе:</string>
     <string name="degree">℃</string>
-    <string name="name_of_city">name_of_city</string>
+    <string name="nameOfCity">название города</string>
     <string name="addition">Дополнительно</string>
     <string name="temperature">Температура</string>
     <string name="humidity">Влажность</string>
-    <string name="speed_of_wind">Скорость ветра</string>
+    <string name="speedOfWind">Скорость ветра</string>
     <string name="pressure">Давление</string>
     <string name="percent">%</string>
     <string name="speed">m/cек</string>
-    <string name="pressure_meter"> мм.рт.ст.</string>
+    <string name="pressureMeter">мм.рт.ст.</string>
     <string name="moscow">moscow</string>
+    <string name="inputOfEmpty">Ничего не набрано</string>
+    <string name="cityOutOfDatabase">Такого города нет в базе</string>
+
 
 </resources>

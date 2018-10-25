@@ -14,43 +14,41 @@ import android.widget.*;
 //        4. * Выясните в чем разница между явным и неявным интентами и в каких случаях используется неявный интент.
 
 public class MainActivity extends AppCompatActivity {
-    private EditText name_of_city;
+    private EditText nameOfCity;
     private Button ok;
-    private Switch switch_addition;
-    private CheckBox checkBox_Humidity, checkBox_Speed, checkBox_Pressure;
+    private Switch switchAddition;
+    private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initViews();
         setOnOkButton();
         setOnCheckBox();
-
-
     }
 
     private void initViews() {
-       name_of_city = findViewById(R.id.name_of_city);
-       ok = findViewById(R.id.batton_Ok);
-       switch_addition = findViewById(R.id.switch_addition);
-       checkBox_Humidity = findViewById(R.id.humidity);
-       checkBox_Speed = findViewById(R.id.speed_of_wind);
-        checkBox_Pressure = findViewById(R.id.pressure);
+        nameOfCity = findViewById(R.id.nameOfCity);
+        ok = findViewById(R.id.buttonOk);
+        switchAddition = findViewById(R.id.switchAddition);
+        checkBoxHumidity = findViewById(R.id.humidity);
+        checkBoxSpeed = findViewById(R.id.speed_of_wind);
+        checkBoxPressure = findViewById(R.id.pressure);
 
     }
 
-    private void setOnOkButton (){
+    private void setOnOkButton() {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               String city = name_of_city.getText().toString();
+                String city = getNameOfCity();
+                if (city.isEmpty()) city = getString(R.string.inputOfEmpty);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("name_of_city", city);
-                intent.putExtra("humidity", checkBox_Humidity.isChecked());
-                intent.putExtra("speed_of_wind", checkBox_Speed.isChecked());
-                intent.putExtra("pressure", checkBox_Pressure.isChecked());
+                intent.putExtra(getString(R.string.nameOfCity), city);
+                intent.putExtra(getString(R.string.humidity), checkBoxHumidity.isChecked());
+                intent.putExtra(getString(R.string.speedOfWind), checkBoxSpeed.isChecked());
+                intent.putExtra(getString(R.string.pressure), checkBoxPressure.isChecked());
                 startActivity(intent);
 
             }
@@ -58,25 +56,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setOnCheckBox() {
-        switch_addition.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+        switchAddition.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (switch_addition.isChecked()){
-                    checkBox_Humidity.setVisibility(View.VISIBLE);
-                    checkBox_Speed.setVisibility(View.VISIBLE);
-                    checkBox_Pressure.setVisibility(View.VISIBLE);
-                }
-                else {
-                    checkBox_Humidity.setVisibility(View.INVISIBLE);
-                    checkBox_Speed.setVisibility(View.INVISIBLE);
-                    checkBox_Pressure.setVisibility(View.INVISIBLE);
+                if (switchAddition.isChecked()) {
+                    checkBoxHumidity.setVisibility(View.VISIBLE);
+                    checkBoxSpeed.setVisibility(View.VISIBLE);
+                    checkBoxPressure.setVisibility(View.VISIBLE);
+                } else {
+                    checkBoxHumidity.setVisibility(View.INVISIBLE);
+                    checkBoxSpeed.setVisibility(View.INVISIBLE);
+                    checkBoxPressure.setVisibility(View.INVISIBLE);
                 }
             }
         });
     }
 
-    public String getName_of_city() {
-        return name_of_city.getText().toString();
+    public String getNameOfCity() {
+        return nameOfCity.getText().toString();
     }
 }

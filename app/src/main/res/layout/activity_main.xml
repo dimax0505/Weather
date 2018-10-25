@@ -11,45 +11,41 @@
             android:id="@+id/comment_for_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/comment_for_input"
+            android:text="@string/commentForInput"
             android:layout_centerHorizontal="true"
            />
     <EditText
-            android:id="@+id/name_of_city"
+            android:id="@+id/nameOfCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/comment_for_input"
-            android:hint="@string/input_here"
+            android:hint="@string/inputHere"
             android:inputType="text"
     />
 
     <Button
-            android:id="@+id/batton_Ok"
+            android:id="@+id/buttonOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name_of_city"
+            android:layout_below="@+id/nameOfCity"
             android:layout_centerHorizontal="true"
             android:text="@string/ok"
     />
 
     <Switch
-            android:id="@+id/switch_addition"
+            android:id="@+id/switchAddition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/batton_Ok"
+            android:layout_below="@+id/buttonOk"
             android:layout_centerHorizontal="true"
+            android:text="@string/addition"
     />
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@+id/switch_addition"
-              android:layout_below="@+id/batton_Ok"
-              android:text="@string/addition"
-    />
+
     <CheckBox
             android:id="@+id/humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/switch_addition"
+            android:layout_below="@+id/switchAddition"
             android:layout_centerHorizontal="true"
             android:text="@string/humidity"
             android:visibility="invisible"
@@ -62,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/humidity"
             android:layout_centerHorizontal="true"
-            android:text="@string/speed_of_wind"
+            android:text="@string/speedOfWind"
             android:visibility="invisible"
     />
 
