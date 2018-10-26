@@ -76,4 +76,5 @@ public class MainActivity extends AppCompatActivity {
     public String getNameOfCity() {
         return nameOfCity.getText().toString();
     }
+
 }

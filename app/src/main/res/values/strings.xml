@@ -13,8 +13,10 @@
     <string name="percent">%</string>
     <string name="speed">m/s</string>
     <string name="pressureMeter">mm Hg</string>
-    <string name="moscow">Moscow</string>
     <string name="inputOfEmpty">Nothing on input</string>
     <string name="cityOutOfDatabase">This city is absent in database </string>
     <string name="commentForInput">Input name of city</string>
+    <string name="moscow">moscow</string>
+    <string name="london">london</string>
+    <string name="paris">paris</string>
 </resources>

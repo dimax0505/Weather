@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class SecondActivity extends AppCompatActivity {
     private TextView nameOfCity, temperature, cityNotValid, humidity, speedOfWind, pressure;
+    WeatherData weatherData;
 
 
     @Override
@@ -20,6 +21,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         initViews();
         nameOfCity.setText(CityFirstUpperCase());
+        weatherData = new WeatherData(this, nameOfCity.getText().toString());
         getWeather(nameOfCity.getText().toString());
 
     }
@@ -39,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void getWeather(String city) {
-        WeatherData weatherData = new WeatherData(city);
+
         if (weatherData.isValidCity()) {
             temperature.setText(String.format("%s%n%s %s", getString(R.string.temperature), weatherData.getTemper(), getString(R.string.degree)));
             temperature.setVisibility(View.VISIBLE);
