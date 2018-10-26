@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/appName"
             android:layout_below="@+id/nameOfCity"
-           />
+    />
 
     <TextView
             style="@style/textViewStyle"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/appName"
             android:layout_below="@+id/temperature"
-           />
+    />
 
     <TextView
             style="@style/textViewStyle"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:text="@string/appName"
             android:layout_below="@+id/humiditySecond"
-           />
+    />
     <TextView
             style="@style/textViewStyle"
             android:id="@+id/pressureSecond"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/appName"
             android:layout_below="@+id/speedOfWindSecond"
-           />
+    />
 
     <TextView
             android:id="@+id/cityNotValid"
