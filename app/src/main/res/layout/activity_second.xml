@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/descriptionSecondActivity"
+            android:layout_centerHorizontal="true"
+    />
+    <TextView
+            android:id="@+id/nameOfCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName"
+            android:layout_below="@+id/description"
+            android:layout_centerHorizontal="true"
+            android:textSize="40sp"
+            android:textAlignment="center"/>
+    <TextView
+            style="@style/textViewStyle"
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName"
+            android:layout_below="@+id/nameOfCity"
+           />
+
+    <TextView
+            style="@style/textViewStyle"
+            android:id="@+id/humiditySecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName"
+            android:layout_below="@+id/temperature"
+           />
+
+    <TextView
+            style="@style/textViewStyle"
+            android:id="@+id/speedOfWindSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName"
+            android:layout_below="@+id/humiditySecond"
+           />
+    <TextView
+            style="@style/textViewStyle"
+            android:id="@+id/pressureSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appName"
+            android:layout_below="@+id/speedOfWindSecond"
+           />
+
+    <TextView
+            android:id="@+id/cityNotValid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cityOutOfDatabase"
+            android:layout_below="@+id/nameOfCity"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="false"
+            android:layout_centerInParent="false"
+            android:textAlignment="center">
+    </TextView>
+
+</RelativeLayout>

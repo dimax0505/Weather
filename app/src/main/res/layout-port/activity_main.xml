@@ -8,14 +8,14 @@
 
     <TextView
             android:id="@+id/comment_for_input"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/commentForInput"
             android:layout_centerHorizontal="true"
     />
     <EditText
             android:id="@+id/nameOfCity"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/comment_for_input"
             android:hint="@string/inputHere"
@@ -32,9 +32,9 @@
     />
 
     <Switch
-            style="@style/switchStyleMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/switchStyleMain"
             android:id="@+id/switchAddition"
             android:layout_below="@+id/buttonOk"
             android:text="@string/addition"
@@ -67,7 +67,6 @@
             android:layout_below="@+id/speed_of_wind"
             android:text="@string/pressure"
     />
-
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"

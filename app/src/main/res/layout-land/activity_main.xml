@@ -46,6 +46,7 @@
             style="@style/checkBoxStyleMain"
             android:id="@+id/humidity"
             android:layout_below="@+id/switchAddition"
+            android:layout_toStartOf="@id/speed_of_wind"
             android:text="@string/humidity"
     />
 
@@ -55,7 +56,7 @@
             android:layout_height="wrap_content"
             style="@style/checkBoxStyleMain"
             android:id="@+id/speed_of_wind"
-            android:layout_below="@+id/humidity"
+            android:layout_below="@+id/switchAddition"
             android:text="@string/speedOfWind"
     />
 
@@ -64,10 +65,10 @@
             android:layout_height="wrap_content"
             style="@style/checkBoxStyleMain"
             android:id="@+id/pressure"
-            android:layout_below="@+id/speed_of_wind"
+            android:layout_below="@+id/switchAddition"
+            android:layout_toEndOf="@+id/speed_of_wind"
             android:text="@string/pressure"
     />
-
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
