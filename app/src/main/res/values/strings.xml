@@ -5,4 +5,5 @@
     <string name="relaunch">Повторный запуск</string>
 
     <string name="place_not_found">Не получилось</string>
+    <string name="degree">℃</string>
 </resources>

@@ -6,9 +6,6 @@ package com.example.maximovd.weather;
 //        4. *Внесите изменения в приложение LifeCycle, чтобы сообщения о жизненном цикле выводились не только всплывающими сообщениями, но и в logcat.
 
 
-
-
-import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,11 +18,10 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-     private final String bundlekey = "bundle_key";
-     TextView textView;
-     private TextView cityField;
-     private TextView currentTemperatureField;
-    private Handler handler;
+    private final String bundlekey = "bundle_key";
+    TextView textView;
+    private TextView cityField;
+    private TextView currentTemperatureField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,41 +37,38 @@ public class MainActivity extends AppCompatActivity {
             instantState = getString(R.string.first_launch);
         else instantState = getString(R.string.relaunch);
 
-        Toast.makeText(getApplicationContext(),instantState + " on Create", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), instantState + " on Create", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onCreate");
 
         updateWeatherData();
     }
 
-    private void updateWeatherData(){
-        new Thread(){
-            public void run(){
+    private void updateWeatherData() {
+        new Thread() {
+            public void run() {
                 final JSONObject json = WeatherFetch.getJSON();
-                if(json == null){
-                            Toast.makeText(getApplicationContext(),
-                                    getApplicationContext().getString(R.string.place_not_found),
-                                    Toast.LENGTH_LONG).show();
+                if (json == null) {
+                    Toast.makeText(getApplicationContext(),
+                            getApplicationContext().getString(R.string.place_not_found),
+                            Toast.LENGTH_LONG).show();
 
                 } else {
-                   renderWeather(json);
+                    renderWeather(json);
                 }
-           }
+            }
         }.start();
 
     }
 
     private void renderWeather(final JSONObject json) {
-        handler = new Handler(getBaseContext().getMainLooper());
+        Handler handler = new Handler(getBaseContext().getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
                 try {
                     cityField.setText(json.getString("name"));
                     JSONObject main = json.getJSONObject("main");
-                    currentTemperatureField.setText(
-                            String.format(Locale.US, "%.2f", main.getDouble("temp")) + " ℃");
-
-
+                    currentTemperatureField.setText(String.format(Locale.US, "%.2f %s", main.getDouble("temp"), getString(R.string.degree)));
                 } catch (Exception e) {
                     Log.e("SimpleWeather", e.getMessage());
                 }
@@ -84,34 +77,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onStart() {
         super.onStart();
-         Toast.makeText(getApplicationContext(),"on Start", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on Start", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onStart");
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Toast.makeText(getApplicationContext(),"on RestoreInstanceState -  Повторный запуск.  " +
-                "textView: " + savedInstanceState.getString(bundlekey,""), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on RestoreInstanceState -  Повторный запуск.  " +
+                "textView: " + savedInstanceState.getString(bundlekey, ""), Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onRestoreInstanceState");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-       Toast.makeText(getApplicationContext(),"on Resume", Toast.LENGTH_SHORT).show();
-       Log.i("LifeCicle", "onResume");
+        Toast.makeText(getApplicationContext(), "on Resume", Toast.LENGTH_SHORT).show();
+        Log.i("LifeCicle", "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(getApplicationContext(),"on Pause", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on Pause", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onPause");
     }
 
@@ -119,28 +110,28 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         outState.putString(bundlekey, textView.getText().toString());
         super.onSaveInstanceState(outState);
-        Toast.makeText(getApplicationContext(),"on SaveInstanceState", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on SaveInstanceState", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onSaveInstanceState");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(getApplicationContext(),"on Stop", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on Stop", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onStop");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Toast.makeText(getApplicationContext(),"on Restart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on Restart", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Toast.makeText(getApplicationContext(),"on Destroy", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "on Destroy", Toast.LENGTH_SHORT).show();
         Log.i("LifeCicle", "onDestroy");
     }
 }
