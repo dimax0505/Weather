@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnToListOfCityButton(){
+    private void setOnToListOfCityButton() {
         toListOfCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     private void setOnCheckBox() {

@@ -21,4 +21,9 @@
     <string name="london">лондон</string>
     <string name="paris">париж</string>
     <string name="name_of_button2">к списку городов</string>
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Лондон</item>
+        <item>Париж</item>
+    </string-array>
 </resources>

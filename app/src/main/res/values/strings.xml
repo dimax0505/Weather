@@ -21,8 +21,8 @@
     <string name="paris">paris</string>
     <string name="name_of_button2">to list of city</string>
     <string-array name="cities">
-        <item>moscow</item>
-        <item>london</item>
-        <item>paris</item>
+        <item>Moscow</item>
+        <item>London</item>
+        <item>Paris</item>
     </string-array>
 </resources>

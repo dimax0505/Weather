@@ -2,18 +2,14 @@ package com.example.maximovd.weather;
 
 
 import android.os.Bundle;
-
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.Objects;
 
 public class SecondActivity extends AppCompatActivity {
     private TextView nameOfCity, temperature, cityNotValid, humidity, speedOfWind, pressure;
-    WeatherData weatherData;
-
+    private WeatherData weatherData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +18,7 @@ public class SecondActivity extends AppCompatActivity {
         initViews();
         nameOfCity.setText(CityFirstUpperCase());
         weatherData = new WeatherData(this, nameOfCity.getText().toString());
-        getWeather(nameOfCity.getText().toString());
+        getWeather();
 
     }
 
@@ -40,8 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         pressure = findViewById(R.id.pressureSecond);
     }
 
-    private void getWeather(String city) {
-
+    private void getWeather() {
         if (weatherData.isValidCity()) {
             temperature.setText(String.format("%s%n%s %s", getString(R.string.temperature), weatherData.getTemper(), getString(R.string.degree)));
             temperature.setVisibility(View.VISIBLE);
@@ -57,7 +52,6 @@ public class SecondActivity extends AppCompatActivity {
                 pressure.setText(String.format("%s%n%s %s", getString(R.string.pressure), weatherData.getPressure(), getString(R.string.pressureMeter)));
                 pressure.setVisibility(View.VISIBLE);
             }
-
         } else cityNotValid.setVisibility(View.VISIBLE);
     }
 }
