@@ -3,7 +3,9 @@
     <string name="mainLayoutName">Weather</string>
     <string name="first_launch">Первый запуск</string>
     <string name="relaunch">Повторный запуск</string>
-
     <string name="place_not_found">Не получилось</string>
     <string name="degree">℃</string>
+    <string name="fragment">fragment</string>
+    <string name="plus">плюсуем</string>
+    <string name="_0">0</string>
 </resources>
