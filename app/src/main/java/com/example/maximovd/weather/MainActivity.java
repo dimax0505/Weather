@@ -1,21 +1,18 @@
 package com.example.maximovd.weather;
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-//1. Создайте в погодном приложении подходящие стили и примените их в качестве темы для всего приложения
-// (например, размер шрифта и его цвет для всех текстовых вьюх вынесите в стиль)
-//        2. Создайте ресурсы для своего приложения ‒ строки, картинки.
-// Можно скачать из интернета, но только не забывайте про права пользования. Берите такие картинки, которые можно использовать.
-// Все строки, используемые в макетах, сделайте ресурсами. Переведите на английский язык и подключите вторым строковым ресурсом к приложению.
-//        3. *Выведите картинку в основной макет (лэайаут, который показыватся при старте и относится к первой активити)
+//В погодном приложении создайте заготовку на основе приложения CityInfo.
+//Подготовьте фрагмент с выводом температурных характеристик вместо герба: чтобы выбрав город, можно было посмотреть температуру в нем.
 
 public class MainActivity extends AppCompatActivity {
     private EditText nameOfCity;
-    private Button ok;
+    private Button ok, toListOfCity;
     private Switch switchAddition;
     private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
 
@@ -26,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         setOnOkButton();
         setOnCheckBox();
+        setOnToListOfCityButton();
     }
 
     private void initViews() {
@@ -35,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHumidity = findViewById(R.id.humidity);
         checkBoxSpeed = findViewById(R.id.speed_of_wind);
         checkBoxPressure = findViewById(R.id.pressure);
+        toListOfCity = findViewById(R.id.to_activity3);
 
     }
 
@@ -53,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setOnToListOfCityButton(){
+        toListOfCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setOnCheckBox() {

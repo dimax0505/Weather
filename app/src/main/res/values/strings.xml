@@ -19,4 +19,10 @@
     <string name="moscow">moscow</string>
     <string name="london">london</string>
     <string name="paris">paris</string>
+    <string name="name_of_button2">to list of city</string>
+    <string-array name="cities">
+        <item>moscow</item>
+        <item>london</item>
+        <item>paris</item>
+    </string-array>
 </resources>
