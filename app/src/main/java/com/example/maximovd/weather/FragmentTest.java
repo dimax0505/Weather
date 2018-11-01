@@ -16,11 +16,26 @@ import android.widget.TextView;
 
 public class FragmentTest extends Fragment {
 
-    private final String bundleKeyFragment = "bundle_key_fragment";
     private TextView textViewFragment;
     private Button plus;
+    private int counterValue;
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.i("LifeCicleFragment", "Fragment onAttach");
+    }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        String instantState;
+        if (savedInstanceState == null)
+            instantState = getString(R.string.first_launch);
+        else instantState = getString(R.string.relaunch);
+        Log.i("LifeCicleFragment", "Fragment onCreate " + instantState);
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,26 +47,26 @@ public class FragmentTest extends Fragment {
             instantState = getString(R.string.first_launch);
         else {
             instantState = getString(R.string.relaunch);
-            restoreCounterValue(savedInstanceState);
         }
         Log.i("LifeCicleFragment", "Fragment onCreateView " + instantState);
         return view;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        String instantState;
-        if (savedInstanceState == null)
-            instantState = getString(R.string.first_launch);
-        else instantState = getString(R.string.relaunch);
-        Log.i("LifeCicleFragment", "Fragment onCreate " + instantState);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.i("LifeCicleFragment", "Fragment onActivityCreated");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("LifeCicleFragment", "Fragment onResume");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
         Log.i("LifeCicleFragment", "Fragment onStart");
     }
 
@@ -62,15 +77,9 @@ public class FragmentTest extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.i("LifeCicleFragment", "Fragment onAttach");
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.i("LifeCicleFragment", "Fragment onActivityCreated");
+    public void onStop() {
+        super.onStop();
+        Log.i("LifeCicleFragment", "Fragment onStop");
     }
 
     @Override
@@ -85,37 +94,22 @@ public class FragmentTest extends Fragment {
         Log.i("LifeCicleFragment", "Fragment onDetach");
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt(bundleKeyFragment, Integer.parseInt(textViewFragment.getText().toString()));
-        super.onSaveInstanceState(outState);
-        Log.i("LifeCicleFragment", "Fragment onSaveInstanceState");
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        Log.i("LifeCicleFragment", "Fragment onRestoreInstanceState");
-    }
-
     private void initViewsFragment(View view) {
         textViewFragment = view.findViewById(R.id.textView);
         plus = view.findViewById(R.id.plus);
+        if (counterValue!=0) textViewFragment.setText(String.valueOf(counterValue));
+
     }
 
     private void setOnIncreaseClickListener() {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int counterValue = Integer.parseInt(textViewFragment.getText().toString());
+                counterValue = Integer.parseInt(textViewFragment.getText().toString());
                 String text = String.valueOf(++counterValue);
                 textViewFragment.setText(text);
             }
         });
-    }
-    private void restoreCounterValue(Bundle savedInstanceState) {
-        String count = String.valueOf(savedInstanceState.getInt(bundleKeyFragment, 0));
-        textViewFragment.setText(count);
     }
 }
 
