@@ -16,6 +16,7 @@ public class FragmentInfo extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         initViewsFragment(view);
         return view;
+
     }
 
     private void initViewsFragment(View view) {
