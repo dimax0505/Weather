@@ -4,12 +4,19 @@ package com.example.maximovd.weather;
 import android.content.Context;
 
 class WeatherData {
+    private int position;
     private String name;
     private String[] city = {"", "", ""};
 
     WeatherData(Context context, String name) {
         this.name = nameToValidInput(name);
         upDateDataBase(context);
+    }
+
+    WeatherData(Context context, int position) {
+        this.position = position;
+        upDateDataBase(context);
+        this.name = city[position];
     }
 
 
