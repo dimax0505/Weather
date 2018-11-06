@@ -21,6 +21,8 @@
     <string name="london">лондон</string>
     <string name="paris">париж</string>
     <string name="name_of_button2">к списку городов</string>
+    <string name="info">инфо</string>
+    <string name="InfoBoxName">Информация об авторе</string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Лондон</item>

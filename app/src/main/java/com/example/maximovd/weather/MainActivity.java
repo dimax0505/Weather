@@ -1,7 +1,9 @@
 package com.example.maximovd.weather;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
     private EditText nameOfCity;
-    private Button ok, toListOfCity;
+    private Button ok, toListOfCity, infoButton;
     private Switch switchAddition;
     private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setOnOkButton();
         setOnCheckBox();
         setOnToListOfCityButton();
+        setOnInfoButton();
     }
 
     private void initViews() {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxSpeed = findViewById(R.id.speed_of_wind);
         checkBoxPressure = findViewById(R.id.pressure);
         toListOfCity = findViewById(R.id.to_activity3);
+        infoButton = findViewById(R.id.info_about_author);
 
     }
 
@@ -78,6 +82,28 @@ public class MainActivity extends AppCompatActivity {
                     checkBoxSpeed.setVisibility(View.INVISIBLE);
                     checkBoxPressure.setVisibility(View.INVISIBLE);
                 }
+            }
+        });
+    }
+
+    private void setOnInfoButton(){
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle(R.string.InfoBoxName)
+                        .setMessage("Максимов Дмитрий Евгеньевич")
+                        .setIcon(R.drawable.icons8_weather)
+
+                        .setCancelable(false)
+                        .setNegativeButton(R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
     }

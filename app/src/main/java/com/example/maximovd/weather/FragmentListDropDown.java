@@ -90,7 +90,6 @@ public class FragmentListDropDown extends Fragment {
                 showTemperature();
             }
         });
-
     }
 
     private void createAdapterList() {
@@ -109,7 +108,6 @@ public class FragmentListDropDown extends Fragment {
                 city = spinner.getSelectedItem().toString();
                 showTemperature();
             }
-
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
