@@ -4,12 +4,16 @@ package com.example.maximovd.weather;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.Objects;
+
+import static com.example.maximovd.weather.WeatherData.*;
 
 public class SecondActivity extends AppCompatActivity {
     private TextView nameOfCity, temperature, cityNotValid, humidity, speedOfWind, pressure;
     private WeatherData weatherData;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +21,8 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         initViews();
         nameOfCity.setText(CityFirstUpperCase());
-        weatherData = new WeatherData(this, nameOfCity.getText().toString());
+        weatherData = getInstance(this, nameOfCity.getText().toString());
+                //new WeatherData(this, nameOfCity.getText().toString());
         getWeather();
 
     }
@@ -34,12 +39,14 @@ public class SecondActivity extends AppCompatActivity {
         humidity = findViewById(R.id.humiditySecond);
         speedOfWind = findViewById(R.id.speedOfWindSecond);
         pressure = findViewById(R.id.pressureSecond);
+        layout = findViewById(R.id.second_activity);
     }
 
     private void getWeather() {
         if (weatherData.isValidCity()) {
             temperature.setText(String.format("%s%n%s %s", getString(R.string.temperature), weatherData.getTemper(), getString(R.string.degree)));
             temperature.setVisibility(View.VISIBLE);
+            layout.setBackgroundResource(weatherData.getCloudy());
             if (Objects.requireNonNull(getIntent().getExtras()).getBoolean(getString(R.string.humidity))) {
                 humidity.setText(String.format("%s%n%s %s", getString(R.string.humidity), weatherData.getHumidity(), getString(R.string.percent)));
                 humidity.setVisibility(View.VISIBLE);

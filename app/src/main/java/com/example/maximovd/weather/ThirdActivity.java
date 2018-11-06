@@ -4,8 +4,8 @@ package com.example.maximovd.weather;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-public class ThirdActivity extends AppCompatActivity {
 
+public class ThirdActivity extends AppCompatActivity {
 
 
     @Override
@@ -13,6 +13,4 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_activity);
     }
-
-
 }
