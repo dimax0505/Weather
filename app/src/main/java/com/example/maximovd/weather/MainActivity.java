@@ -9,24 +9,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-//В погодном приложении создайте заготовку на основе приложения CityInfo.
-//Подготовьте фрагмент с выводом температурных характеристик вместо герба: чтобы выбрав город, можно было посмотреть температуру в нем.
 
 public class MainActivity extends AppCompatActivity {
+
+    // Создаем переменные необходимые для работы приложения
     private EditText nameOfCity;
     private Button ok, toListOfCity, infoButton;
     private Switch switchAddition;
     private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
+    private String information;
 
+    // Здесь собираем методы которые выполняются при создании активности
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViews();
-        setOnOkButton();
-        setOnCheckBox();
-        setOnToListOfCityButton();
-        setOnInfoButton();
+        initViews(); // инициализируем переменные
+        setOnOkButton(); //обработка нажатия на кнопку ОК
+        setOnCheckBox(); //обработка работы чекбокса
+        setOnToListOfCityButton(); //обработка нажатия на кнопку - "к списку городов"
+        setOnInfoButton();//обработка нажатия на кнопку инфо - выводится информация об авторе
     }
 
     private void initViews() {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxPressure = findViewById(R.id.pressure);
         toListOfCity = findViewById(R.id.to_activity3);
         infoButton = findViewById(R.id.info_about_author);
-
+        information = getText(R.string.information).toString();
     }
 
     private void setOnOkButton() {
@@ -86,15 +88,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnInfoButton(){
+    private void setOnInfoButton() {
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle(R.string.InfoBoxName)
-                        .setMessage("Максимов Дмитрий Евгеньевич")
+                        .setMessage(information)
                         .setIcon(R.drawable.icons8_weather)
-
                         .setCancelable(false)
                         .setNegativeButton(R.string.ok,
                                 new DialogInterface.OnClickListener() {

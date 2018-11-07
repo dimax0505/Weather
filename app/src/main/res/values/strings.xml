@@ -22,6 +22,8 @@
     <string name="name_of_button2">to list of city</string>
     <string name="info">info</string>
     <string name="InfoBoxName">Info about author</string>
+    <string name="information">This app was created for learning how to make android app. Author - Maksimov Dmitry
+    </string>
     <string-array name="cities">
         <item>Moscow</item>
         <item>London</item>

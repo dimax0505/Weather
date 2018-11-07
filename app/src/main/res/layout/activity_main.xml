@@ -74,7 +74,9 @@
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/signature_by_author"
-            android:contentDescription="@string/appName"/>
+            android:contentDescription="@string/appName"
+    />
+
 
     <Button
             android:id="@+id/to_activity3"
@@ -93,7 +95,6 @@
             android:layout_alignParentBottom="true"
             android:text="@string/info"
     />
-
 
 
 </RelativeLayout>
