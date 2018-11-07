@@ -1,4 +1,32 @@
 <resources>
-    <string name="app_name">Weather</string>
-    <string name="mainLayoutName">Weather</string>
+    <string name="appName">Weather</string>
+    <string name="inputHere">inputHere</string>
+    <string name="ok">OK</string>
+    <string name="descriptionSecondActivity">Current weather in city:</string>
+    <string name="degree">℃</string>
+    <string name="nameOfCity">name of city</string>
+    <string name="addition">Addition</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="speedOfWind">Speed of Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="percent">%</string>
+    <string name="speed">m/s</string>
+    <string name="pressureMeter">mm Hg</string>
+    <string name="inputOfEmpty">Nothing on input</string>
+    <string name="cityOutOfDatabase">This city is absent in database </string>
+    <string name="commentForInput">Input name of city</string>
+    <string name="moscow">moscow</string>
+    <string name="london">london</string>
+    <string name="paris">paris</string>
+    <string name="name_of_button2">to list of city</string>
+    <string name="info">info</string>
+    <string name="InfoBoxName">Info about author</string>
+    <string name="information">This app was created for learning how to make android app. Author - Maksimov Dmitry
+    </string>
+    <string-array name="cities">
+        <item>Moscow</item>
+        <item>London</item>
+        <item>Paris</item>
+    </string-array>
 </resources>

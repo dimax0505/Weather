@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/third_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/ic_launcher_background"
+
+>
+
+    <fragment
+            android:id="@+id/fragment_list_drop_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.maximovd.weather.FragmentListDropDown"
+            android:layout_weight="1"
+
+    />
+
+    <fragment
+            android:id="@+id/fragment_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.maximovd.weather.FragmentInfo"
+            android:layout_weight="1"
+
+    />
+
+
+
+
+</LinearLayout>
