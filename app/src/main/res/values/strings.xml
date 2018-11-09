@@ -1,4 +1,20 @@
 <resources>
-    <string name="app_name">Weather</string>
-    <string name="mainLayoutName">Weather</string>
+    <string name="app_name">A2L7_Lists</string>
+    <string name="to_recycler_view">To Recycler View</string>
+    <string name="delete">del</string>
+    <string name="add_image">add Image</string>
+    <string name="change">change</string>
+    <string name="image">image</string>
+    <string name="message_full_to_add">All elements in List, try to delete one of elements before</string>
+
+    <string-array name="descriptions">
+        <item>Зеленый лес</item>
+        <item>Гора</item>
+        <item>Водопад</item>
+        <item>Небо</item>
+        <item>Туман</item>
+        <item>Поляна</item>
+        <item>Осень</item>
+    </string-array>
+
 </resources>
