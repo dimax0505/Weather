@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">A2L7_Lists</string>
     <string name="to_recycler_view">To Recycler View</string>
+    <string name="delete">del</string>
+    <string name="add_image">add Image</string>
+    <string name="change">change</string>
 
     <string-array name="descriptions">
         <item>Зеленый лес</item>

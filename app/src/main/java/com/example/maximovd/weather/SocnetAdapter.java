@@ -6,10 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.util.List;
 
@@ -18,6 +15,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
     private List<Soc> dataSource;                         // Наш источник данных
     private OnItemClickListener itemClickListener;        // Слушатель, будет устанавливаться извне
     private OnCheckboxCheckedListener onCheckedChangeListener;
+    private OnButtonRemoveLisener onButtonRemoveLisener;
 
     // Передаем в конструктор источник данных
     // В нашем случае это массив, но может быть и запросом к БД
@@ -51,6 +49,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
         public TextView description;
         public ImageView picture;
         public CheckBox like;
+        public Button button;
 
         ViewHolder(View v) {
             super(v);
@@ -58,6 +57,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
             description = v.findViewById(R.id.description);
             picture = v.findViewById(R.id.picture);
             like = v.findViewById(R.id.like);
+            button = v.findViewById(R.id.button_remove);
 
             // Обработчик нажатий на этом ViewHolder
             picture.setOnClickListener(new View.OnClickListener() {
@@ -74,8 +74,24 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
                     onCheckedChangeListener.onCheckboxChange(buttonView, getAdapterPosition());
                 }
             });
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onButtonRemoveLisener != null) {
+                        onButtonRemoveLisener.onButtonRemoveListener(v, getAdapterPosition());
+                    }
+                }
+            });
 
         }
+    }
+    //Интерфейс для обработки нажатия кнопки удаления
+    public interface OnButtonRemoveLisener {
+        void onButtonRemoveListener(View view, int position);
+    }
+    //Сеттер для слушателя нажатий на кнопку
+    void setOnButtonRemoveClickListener (OnButtonRemoveLisener onButtonRemoveClickListener) {
+        this.onButtonRemoveLisener = onButtonRemoveClickListener;
     }
     //Интерфейс для обработки изменения значения чекбокса
     public interface OnCheckboxCheckedListener {

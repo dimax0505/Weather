@@ -40,12 +40,32 @@ import java.util.List;
         return answer;
     }
     //получаем информацию о текущем значение чекбокса
-    boolean isCheckedCHeckBox (int position) {
+    boolean isCheckedCheckBox(int position) {
         return dataSource.get(position).getLike();
     }
 
     //меняем значение чекбокса при нажатии
     void saveChangeCheckbox (int position) {
         dataSource.get(position).changeLike();
+    }
+
+    Soc getFreeElement(){
+        // Строки описаний из ресурсов
+        String[] descriptions = resources.getStringArray(R.array.descriptions);
+        // Изображения
+        int[] pictures = getImageArray();
+        // ищем свободный
+        if (descriptions.length==dataSource.size()) return null;
+        else {
+            for (int j = 0; j<descriptions.length; j++){
+                for (int i = 0; i<dataSource.size(); i++){
+                    if(!descriptions[j].equals(dataSource.get(i).getDescription()) && i==(dataSource.size()-1))
+                        return new Soc(descriptions[j],pictures[j],false);
+                    if (descriptions[j].equals(dataSource.get(i).getDescription()))
+                        break;
+                }
+            }
+        }
+        return null;
     }
 }
