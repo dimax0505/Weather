@@ -30,6 +30,15 @@
             android:layout_centerHorizontal="true"
             android:text="@string/ok"
     />
+    <Button
+            android:id="@+id/buttonHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameOfCity"
+            android:layout_toEndOf="@id/buttonOk"
+            android:layout_centerHorizontal="true"
+            android:text="@string/history"
+    />
 
     <Switch
             style="@style/switchStyleMain"

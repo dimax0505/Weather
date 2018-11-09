@@ -14,10 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     // Создаем переменные необходимые для работы приложения
     private EditText nameOfCity;
-    private Button ok, toListOfCity, infoButton;
+    private Button ok, toListOfCity, infoButton, historyButton;
     private Switch switchAddition;
     private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
     private String information;
+    private WeatherData weatherData;
 
     // Здесь собираем методы которые выполняются при создании активности
     @Override
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setOnCheckBox(); //обработка работы чекбокса
         setOnToListOfCityButton(); //обработка нажатия на кнопку - "к списку городов"
         setOnInfoButton();//обработка нажатия на кнопку инфо - выводится информация об авторе
+        setOnHistoryButton();
     }
 
     private void initViews() {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         toListOfCity = findViewById(R.id.to_activity3);
         infoButton = findViewById(R.id.info_about_author);
         information = getText(R.string.information).toString();
+        historyButton = findViewById(R.id.buttonHistory);
     }
 
     private void setOnOkButton() {
@@ -55,6 +58,26 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(getString(R.string.speedOfWind), checkBoxSpeed.isChecked());
                 intent.putExtra(getString(R.string.pressure), checkBoxPressure.isChecked());
                 startActivity(intent);
+
+            }
+        });
+    }
+    private void setOnHistoryButton() {
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String city = getNameOfCity();
+                if (city.isEmpty()) city = getString(R.string.inputOfEmpty);
+                weatherData = new WeatherData(MainActivity.this, city);
+                if (weatherData.isValidCity()){
+                Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                intent.putExtra(getString(R.string.historykey), weatherData.getHistory());
+                startActivity(intent);}
+                else {
+                    Toast.makeText(MainActivity.this,
+                            R.string.cityOutOfDatabase,
+                            Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

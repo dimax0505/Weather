@@ -8,7 +8,7 @@ class WeatherData {
     private String name;
     private String[] city = {"", "", ""};
 
-    private WeatherData(Context context, String name) {
+     WeatherData(Context context, String name) {
         this.name = nameToValidInput(name);
         upDateDataBase(context);
     }
@@ -18,6 +18,10 @@ class WeatherData {
     private int[] speedOfWind = {10, 20, 30};
     private int[] pressure = {10, 20, 30};
     private int[] cloudy = {R.drawable.rainy, R.drawable.cloudy, R.drawable.sunny};
+    private String[][] history = {{"10.01.2018 temperatura 1C", "11.01.2018 temperatura 2C","12.01.2018 temperatura 3C"},
+                                  {"10.01.2018 temperatura 4C","11.01.2018 temperatura 5C","12.01.2018 temperatura 6C"},
+                                  {"10.01.2018 temperatura 7C","11.01.2018 temperatura 8C","12.01.2018 temperatura 9C"}};
+
 
     static WeatherData getInstance(Context context, String value) {
         if (weatherData == null)
@@ -92,6 +96,14 @@ class WeatherData {
         return R.drawable.ic_launcher_background;
     }
 
+    String [] getHistory() {
+        for (int i = 0; i < city.length; i++) {
+            if (city[i].equals(name)) {
+                return history[i];
+            }
+        }
+        return null;
+    }
     public void setName(String name) {
         this.name = name;
     }

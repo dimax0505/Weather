@@ -24,6 +24,8 @@
     <string name="InfoBoxName">Info about author</string>
     <string name="information">This app was created for learning how to make android app. Author - Maksimov Dmitry
     </string>
+    <string name="history">History</string>
+    <string name="historykey">history</string>
     <string-array name="cities">
         <item>Moscow</item>
         <item>London</item>

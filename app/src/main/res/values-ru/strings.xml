@@ -26,6 +26,7 @@
     <string name="information">Приложение создано с целью изучения прогаммирования под Андроид. Автор - Максимов Дмитрий
         Евгеньевич
     </string>
+    <string name="history">History</string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Лондон</item>
