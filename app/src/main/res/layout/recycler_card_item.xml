@@ -19,15 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-
             <ImageView
                 android:id="@+id/picture"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/album_cover_height"
                 android:layout_weight="1"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:contentDescription="@string/image"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -40,7 +39,9 @@
                     android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toStartOf="@id/button_change"
                     android:layout_alignParentStart="true"
                 />
                 <CheckBox
@@ -51,7 +52,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp"
             />
-
                 <Button
                         android:id="@+id/button_remove"
                         android:layout_width="wrap_content"
@@ -69,10 +69,10 @@
                         android:text="@string/change"
                         android:textSize="20sp"
                         android:layout_toStartOf="@id/button_remove"
+                        android:gravity="center"
                         android:scaleX="0.5"
                         android:scaleY="0.5"
                 />
-
             </RelativeLayout>
         </LinearLayout>
 

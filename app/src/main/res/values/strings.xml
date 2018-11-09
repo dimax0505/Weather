@@ -4,6 +4,8 @@
     <string name="delete">del</string>
     <string name="add_image">add Image</string>
     <string name="change">change</string>
+    <string name="image">image</string>
+    <string name="message_full_to_add">All elements in List, try to delete one of elements before</string>
 
     <string-array name="descriptions">
         <item>Зеленый лес</item>

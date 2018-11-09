@@ -15,8 +15,7 @@ import android.widget.Toast;
 import java.util.Locale;
 
 public class RecyclerActivity extends AppCompatActivity {
-    Button buttonAddImage;
-   // private String[] data = {"One", "Two", "Three", "Four"};
+    // private String[] data = {"One", "Two", "Three", "Four"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        buttonAddImage = findViewById(R.id.button_add_image);
+        Button buttonAddImage = findViewById(R.id.button_add_image);
 
         // Эта установка служит для повышения производительности системы
         recyclerView.setHasFixedSize(true);
@@ -62,9 +61,9 @@ public class RecyclerActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-        adapter.setOnButtonRemoveClickListener(new SocnetAdapter.OnButtonRemoveLisener() {
+        adapter.setOnButtonRemoveClickListener(new SocnetAdapter.OnButtonListener() {
             @Override
-            public void onButtonRemoveListener(View view, int position) {
+            public void onButtonListener(View view, int position) {
                 adapter.removeElement(position);
             }
         });
@@ -73,10 +72,22 @@ public class RecyclerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (builder.getFreeElement()==null){
                     Toast.makeText(RecyclerActivity.this,
-                            String.format(Locale.getDefault(), "All elemens in List"),
+                            getString(R.string.message_full_to_add),
                             Toast.LENGTH_SHORT).show();
                 }
                else adapter.addElement(builder.getFreeElement());
+            }
+        });
+
+        adapter.setOnButtonChangeClickListener(new SocnetAdapter.OnButtonListener(){
+            @Override
+            public void onButtonListener(View view, int position) {
+                if (builder.getFreeElement()==null){
+                    Toast.makeText(RecyclerActivity.this,
+                            getString(R.string.message_full_to_add),
+                            Toast.LENGTH_SHORT).show();
+                }
+                else adapter.changeElement(builder.getFreeElement(),position);
             }
         });
 

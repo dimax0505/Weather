@@ -15,7 +15,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
     private List<Soc> dataSource;                         // Наш источник данных
     private OnItemClickListener itemClickListener;        // Слушатель, будет устанавливаться извне
     private OnCheckboxCheckedListener onCheckedChangeListener;
-    private OnButtonRemoveLisener onButtonRemoveLisener;
+    private OnButtonListener onButtonRemoveListener, onButtonChangeListener;
 
     // Передаем в конструктор источник данных
     // В нашем случае это массив, но может быть и запросом к БД
@@ -23,19 +23,19 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
         this.dataSource = dataSource;
     }
 
-    public void addElement(Soc soc) {
+    void addElement(Soc soc) {
         dataSource.add(soc);
         notifyItemInserted(dataSource.size() - 1);
     }
 
-    public void changeElement(Soc soc, int position) {
+    void changeElement(Soc soc, int position) {
         if(dataSource.size() > position) {
             dataSource.set(position, soc);
             notifyItemChanged(position);
         }
     }
 
-    public void removeElement(int position) {
+    void removeElement(int position) {
         if(dataSource.size() > position) {
             dataSource.remove(position);
             notifyItemRemoved(position);
@@ -49,7 +49,7 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
         public TextView description;
         public ImageView picture;
         public CheckBox like;
-        public Button button;
+        public Button button_remove, button_change;
 
         ViewHolder(View v) {
             super(v);
@@ -57,7 +57,9 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
             description = v.findViewById(R.id.description);
             picture = v.findViewById(R.id.picture);
             like = v.findViewById(R.id.like);
-            button = v.findViewById(R.id.button_remove);
+            button_remove = v.findViewById(R.id.button_remove);
+            button_change = v.findViewById(R.id.button_change);
+
 
             // Обработчик нажатий на этом ViewHolder
             picture.setOnClickListener(new View.OnClickListener() {
@@ -74,24 +76,36 @@ public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder
                     onCheckedChangeListener.onCheckboxChange(buttonView, getAdapterPosition());
                 }
             });
-            button.setOnClickListener(new View.OnClickListener() {
+            button_remove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (onButtonRemoveLisener != null) {
-                        onButtonRemoveLisener.onButtonRemoveListener(v, getAdapterPosition());
+                    if (onButtonRemoveListener != null) {
+                        onButtonRemoveListener.onButtonListener(v, getAdapterPosition());
+                    }
+                }
+            });
+            button_change.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onButtonChangeListener != null) {
+                        onButtonChangeListener.onButtonListener(v, getAdapterPosition());
                     }
                 }
             });
 
         }
     }
-    //Интерфейс для обработки нажатия кнопки удаления
-    public interface OnButtonRemoveLisener {
-        void onButtonRemoveListener(View view, int position);
+    //Интерфейс для обработки нажатия кнопки
+    public interface OnButtonListener {
+        void onButtonListener(View view, int position);
     }
-    //Сеттер для слушателя нажатий на кнопку
-    void setOnButtonRemoveClickListener (OnButtonRemoveLisener onButtonRemoveClickListener) {
-        this.onButtonRemoveLisener = onButtonRemoveClickListener;
+    //Сеттер для слушателя нажатий на кнопку удаления
+    void setOnButtonRemoveClickListener (OnButtonListener onButtonRemoveClickListener) {
+        this.onButtonRemoveListener = onButtonRemoveClickListener;
+    }
+    //Сеттер для слушателя нажатий на кнопку замены
+    void setOnButtonChangeClickListener (OnButtonListener onButtonChangeClickListener) {
+        this.onButtonChangeListener = onButtonChangeClickListener;
     }
     //Интерфейс для обработки изменения значения чекбокса
     public interface OnCheckboxCheckedListener {
