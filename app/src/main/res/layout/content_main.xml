@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+>
+
+    <TextView
+            android:id="@+id/comment_for_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commentForInput"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+    <android.support.design.widget.TextInputEditText
+            android:id="@+id/nameOfCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comment_for_input"
+            android:hint="@string/inputHere"
+            android:inputType="textAutoCorrect"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/comment_for_input"/>
+
+    <Button
+            android:id="@+id/buttonOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameOfCity"
+            android:layout_centerHorizontal="true"
+            android:text="@string/ok"
+            app:layout_constraintTop_toBottomOf="@+id/nameOfCity"/>
+    <Button
+            android:id="@+id/buttonHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameOfCity"
+            android:layout_toEndOf="@id/buttonOk"
+            android:layout_centerHorizontal="true"
+            android:text="@string/history"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/nameOfCity"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+    <Switch
+            style="@style/switchStyleMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switchAddition"
+            android:layout_below="@+id/buttonOk"
+            android:text="@string/addition"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/buttonHistory"/>
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/checkBoxStyleMain"
+            android:id="@+id/humidity"
+            android:layout_below="@+id/switchAddition"
+            android:text="@string/humidity"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/switchAddition"/>
+
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/checkBoxStyleMain"
+            android:id="@+id/speed_of_wind"
+            android:layout_below="@+id/humidity"
+            android:text="@string/speedOfWind"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/pressure"/>
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            style="@style/checkBoxStyleMain"
+            android:id="@+id/pressure"
+            android:layout_below="@+id/speed_of_wind"
+            android:text="@string/pressure"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/humidity"/>
+
+    <ImageView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/signature_by_author"
+            android:contentDescription="@string/appName"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/speed_of_wind"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
