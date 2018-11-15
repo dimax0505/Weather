@@ -1,109 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+>
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tall_toolbar_height"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
-            android:id="@+id/comment_for_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/commentForInput"
-            android:layout_centerHorizontal="true"
-    />
-    <EditText
-            android:id="@+id/nameOfCity"
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <ImageView
+                    android:id="@+id/main_backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rainy"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.5"
+                    android:contentDescription="@string/image"/>
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/comment_for_input"
-            android:hint="@string/inputHere"
-            android:inputType="text"
-    />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-            android:id="@+id/buttonOk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nameOfCity"
-            android:layout_centerHorizontal="true"
-            android:text="@string/ok"
-    />
-    <Button
-            android:id="@+id/buttonHistory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nameOfCity"
-            android:layout_toEndOf="@id/buttonOk"
-            android:layout_centerHorizontal="true"
-            android:text="@string/history"
-    />
+        <include
+                layout="@layout/content_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Switch
-            style="@style/switchStyleMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/switchAddition"
-            android:layout_below="@+id/buttonOk"
-            android:text="@string/addition"
-    />
-
-    <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/checkBoxStyleMain"
-            android:id="@+id/humidity"
-            android:layout_below="@+id/switchAddition"
-            android:text="@string/humidity"
-    />
+    </android.support.v4.widget.NestedScrollView>
 
 
-    <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/checkBoxStyleMain"
-            android:id="@+id/speed_of_wind"
-            android:layout_below="@+id/humidity"
-            android:text="@string/speedOfWind"
-    />
-
-    <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/checkBoxStyleMain"
-            android:id="@+id/pressure"
-            android:layout_below="@+id/speed_of_wind"
-            android:text="@string/pressure"
-    />
-
-    <ImageView
-            android:id="@+id/author"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/signature_by_author"
-            android:contentDescription="@string/appName"
-    />
-
-
-    <Button
-            android:id="@+id/to_activity3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/author"
-            android:layout_centerHorizontal="true"
-            android:text="@string/name_of_button2"
-    />
-
-    <Button
-            android:id="@+id/info_about_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/info"
-    />
-
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -8,7 +8,19 @@ class WeatherData {
     private String name;
     private String[] city = {"", "", ""};
 
-     WeatherData(Context context, String name) {
+    public String[] getCity() {
+        return city;
+    }
+
+    public int[] getTemperature() {
+        return temperature;
+    }
+
+    public int[] getCloudyAll() {
+        return cloudy;
+    }
+
+    WeatherData(Context context, String name) {
         this.name = nameToValidInput(name);
         upDateDataBase(context);
     }
@@ -22,6 +34,10 @@ class WeatherData {
                                   {"10.01.2018 temperatura 4C","11.01.2018 temperatura 5C","12.01.2018 temperatura 6C"},
                                   {"10.01.2018 temperatura 7C","11.01.2018 temperatura 8C","12.01.2018 temperatura 9C"}};
 
+
+    public String getName() {
+        return name;
+    }
 
     static WeatherData getInstance(Context context, String value) {
         if (weatherData == null)

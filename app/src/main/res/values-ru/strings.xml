@@ -27,6 +27,8 @@
         Евгеньевич
     </string>
     <string name="history">History</string>
+    <string name="image">image</string>
+    <string name="view_all_city_info">View All City Info</string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Лондон</item>

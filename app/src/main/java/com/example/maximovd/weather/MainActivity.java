@@ -3,9 +3,13 @@ package com.example.maximovd.weather;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.widget.*;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
@@ -26,11 +30,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews(); // инициализируем переменные
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         setOnOkButton(); //обработка нажатия на кнопку ОК
         setOnCheckBox(); //обработка работы чекбокса
-        setOnToListOfCityButton(); //обработка нажатия на кнопку - "к списку городов"
-        setOnInfoButton();//обработка нажатия на кнопку инфо - выводится информация об авторе
+       // setOnToListOfCityButton(); //обработка нажатия на кнопку - "к списку городов"
+       // setOnInfoButton();//обработка нажатия на кнопку инфо - выводится информация об авторе
         setOnHistoryButton();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.info_about_author:
+                showInfo();
+            case R.id.to_activity3:
+                toListOfCity();
+            case R.id.to_activity4:
+                toAllCityInfo();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initViews() {
@@ -40,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHumidity = findViewById(R.id.humidity);
         checkBoxSpeed = findViewById(R.id.speed_of_wind);
         checkBoxPressure = findViewById(R.id.pressure);
-        toListOfCity = findViewById(R.id.to_activity3);
-        infoButton = findViewById(R.id.info_about_author);
+       // toListOfCity = findViewById(R.id.to_activity3);
+       // infoButton = findViewById(R.id.info_about_author);
         information = getText(R.string.information).toString();
         historyButton = findViewById(R.id.buttonHistory);
     }
@@ -83,14 +111,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnToListOfCityButton() {
-        toListOfCity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
-                startActivity(intent);
-            }
-        });
+    private void toAllCityInfo() {
+        Intent intent = new Intent(MainActivity.this, FourActivity.class);
+        startActivity(intent);
+    }
+
+    private void toListOfCity() {
+        Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+        startActivity(intent);
     }
 
     private void setOnCheckBox() {
@@ -111,25 +139,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setOnInfoButton() {
-        infoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle(R.string.InfoBoxName)
-                        .setMessage(information)
-                        .setIcon(R.drawable.icons8_weather)
-                        .setCancelable(false)
-                        .setNegativeButton(R.string.ok,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.cancel();
-                                    }
-                                });
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
+//    private void setOnInfoButton() {
+//        infoButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showInfo();
+//            }
+//        });
+//    }
+
+    private void showInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(R.string.InfoBoxName)
+                .setMessage(information)
+                .setIcon(R.drawable.icons8_weather)
+                .setCancelable(false)
+                .setNegativeButton(R.string.ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     public String getNameOfCity() {
