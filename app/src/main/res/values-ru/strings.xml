@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Погода</string>
+    <string name="inputHere">здесь наберите город</string>
+    <string name="ok">OK</string>
+    <string name="descriptionSecondActivity">Текущая погода в городе:</string>
+    <string name="degree">℃</string>
+    <string name="nameOfCity">название города</string>
+    <string name="addition">Дополнительно</string>
+    <string name="temperature">Температура</string>
+    <string name="humidity">Влажность</string>
+    <string name="speedOfWind">Скорость ветра</string>
+    <string name="pressure">Давление</string>
+    <string name="percent">%</string>
+    <string name="speed">m/cек</string>
+    <string name="pressureMeter">мм.рт.ст.</string>
+    <string name="inputOfEmpty">Ничего не набрано</string>
+    <string name="cityOutOfDatabase">Такого города нет в базе</string>
+    <string name="commentForInput">Введите название города:</string>
+    <string name="moscow">москва</string>
+    <string name="london">лондон</string>
+    <string name="paris">париж</string>
+    <string name="name_of_button2">к списку городов</string>
+    <string name="info">инфо</string>
+    <string name="InfoBoxName">Информация об авторе</string>
+    <string name="information">Приложение создано с целью изучения прогаммирования под Андроид. Автор - Максимов Дмитрий
+        Евгеньевич
+    </string>
+    <string name="history">History</string>
+    <string name="image">image</string>
+    <string name="view_all_city_info">View All City Info</string>
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Лондон</item>
+        <item>Париж</item>
+    </string-array>
+</resources>
