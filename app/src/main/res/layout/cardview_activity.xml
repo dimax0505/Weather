@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                     xmlns:tools="http://schemas.android.com/tools"
+                                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:id="@+id/cardView"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                                    android:elevation="1dp"
+                                    android:layout_weight="3"
                                     card_view:cardCornerRadius="20dp"
-                                    card_view:cardElevation="25dp"
-                                    card_view:contentPaddingBottom="20dp"
-                                    card_view:cardBackgroundColor="@color/cardview_light_background"
+                                    card_view:cardBackgroundColor="@color/colorTransparent"
                                     tools:context="com.example.maximovd.weather.AllCityInfo">
 
     <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="200dp"
+            android:background="@drawable/rainy">
 
         <TextView
                 android:id="@+id/city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="shopname"
-                android:textSize="15dp"
-                card_view:layout_constraintTop_toTopOf="parent" card_view:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"/>
+                android:textSize="15sp"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorTransparent"/>
+
 
         <TextView
                 android:id="@+id/temperature"
@@ -34,22 +36,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/info"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toEndOf="@+id/city"
-                card_view:layout_constraintTop_toTopOf="parent"/>
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:background="@color/colorTransparent"/>
 
-        <ImageView
-                android:id="@+id/numberCard"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/temperature"
-                card_view:layout_constraintHorizontal_bias="0.0"
-        />
+
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
 

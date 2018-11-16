@@ -3,7 +3,6 @@ package com.example.maximovd.weather;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.widget.*;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Создаем переменные необходимые для работы приложения
     private EditText nameOfCity;
-    private Button ok, toListOfCity, infoButton, historyButton;
+    private Button ok, historyButton;
     private Switch switchAddition;
     private CheckBox checkBoxHumidity, checkBoxSpeed, checkBoxPressure;
     private String information;
@@ -30,14 +29,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews(); // инициализируем переменные
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setOnOkButton(); //обработка нажатия на кнопку ОК
         setOnCheckBox(); //обработка работы чекбокса
-       // setOnToListOfCityButton(); //обработка нажатия на кнопку - "к списку городов"
-       // setOnInfoButton();//обработка нажатия на кнопку инфо - выводится информация об авторе
         setOnHistoryButton();
-
     }
 
     @Override
@@ -51,12 +47,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id){
-            case R.id.info_about_author:
+            case R.id.info_about_author:{
                 showInfo();
-            case R.id.to_activity3:
+                break;}
+            case R.id.to_activity3:{
                 toListOfCity();
-            case R.id.to_activity4:
+                break;}
+            case R.id.to_activity4:{
                 toAllCityInfo();
+                break;}
         }
         return super.onOptionsItemSelected(item);
     }
@@ -68,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         checkBoxHumidity = findViewById(R.id.humidity);
         checkBoxSpeed = findViewById(R.id.speed_of_wind);
         checkBoxPressure = findViewById(R.id.pressure);
-       // toListOfCity = findViewById(R.id.to_activity3);
-       // infoButton = findViewById(R.id.info_about_author);
         information = getText(R.string.information).toString();
         historyButton = findViewById(R.id.buttonHistory);
     }
@@ -138,15 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void setOnInfoButton() {
-//        infoButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showInfo();
-//            }
-//        });
-//    }
 
     private void showInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

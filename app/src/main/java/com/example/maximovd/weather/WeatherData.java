@@ -16,7 +16,8 @@ class WeatherData {
         return temperature;
     }
 
-    public int[] getCloudyAll() {
+
+    int[] getCloudyAll() {
         return cloudy;
     }
 

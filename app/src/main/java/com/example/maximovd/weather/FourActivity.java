@@ -7,8 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 public class FourActivity extends AppCompatActivity {
-    AllCityInfo [] fragment;
-    WeatherData weatherData;
+    private WeatherData weatherData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class FourActivity extends AppCompatActivity {
 
         // добавляем фрагмент
         Bundle [] bundle = new Bundle[weatherData.getCity().length];
-        fragment = new AllCityInfo[weatherData.getCity().length];
+        AllCityInfo[] fragment = new AllCityInfo[weatherData.getCity().length];
         for (int i=0; i<weatherData.getCity().length; i++){
             bundle[i] = new Bundle();
             bundlePut(bundle[i],i);

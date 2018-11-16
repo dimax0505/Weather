@@ -20,14 +20,14 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         initViews();
-        nameOfCity.setText(CityFirstUpperCase());
+        nameOfCity.setText(cityFirstUpperCase());
         weatherData = getInstance(this, nameOfCity.getText().toString());
                 //new WeatherData(this, nameOfCity.getText().toString());
         getWeather();
 
     }
 
-    private String CityFirstUpperCase() {
+    private String cityFirstUpperCase() {
         String cityIn = Objects.requireNonNull(getIntent().getExtras()).getString(getString(R.string.nameOfCity));
         return Objects.requireNonNull(cityIn).substring(0, 1).toUpperCase() + cityIn.substring(1);
     }
